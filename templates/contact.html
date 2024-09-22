@@ -1,0 +1,235 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Contact Us
+{% endblock %}
+
+{% block main %}
+
+<!-- How can we help + vertically centered form -->
+<!-- Adapted from: https://getbootstrap.com/docs/5.3/examples/heroes/, used as a base for the contact us form -->
+<div class="container col-xl-10 col-xxl-8 px-4 pt-3 pb-0">
+    <div class="row align-items-center g-lg-5 pb-5">
+        <div class="col-lg-5 text-center text-lg-start">
+            <h1 class="display-4 lh-1 mb-3 fw-bold" id="primary">How can we help?</h1>
+            <p class="col-lg-12 fs-4">Let us know what you're after and when you need it by, and we'll be in touch with a free quote within 1-2 business days.</p>
+            <p class="col-lg-12 fs-4">If you're not sure where to begin with your garden or have a limited budget, complete the form as best you can and one of our friendly team members will reach out to you.</p>
+            <p class="col-lg-12 fs-4">If you prefer a phone call please give us a call on <strong id="secondary">0411 111 111</strong>.<br><em>&#40;8am-5pm Mon-Fri&#41;</em></p>
+        </div>
+        <div class="col-md-6 mx-auto col-lg-7">
+            <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/contact" method="post">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="fullname" id="fullname" placeholder="" maxlength="100" required>
+                    <label for="fname">Full Name</label>
+                    <div data-lastpass-icon-root="" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;">
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone Number" required>
+                    <label for="phone">Phone Number <!--<small class="text-body-secondary">&#40;eg. 0412345678 or 0296123456&#41;</small>--></label>
+                    <div data-lastpass-icon-root="" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;">
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
+                    <label for="email">Email Address</label>
+                    <div data-lastpass-icon-root="" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;">
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="postcode" id="postcode" pattern="\d{4}" placeholder="postcode" required>
+                    <label for="postcode">Postcode <!--<small class="text-body-secondary">&#40;eg. 2000&#41;</small>--></label>
+                    <div data-lastpass-icon-root="" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;">
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" name="turnaround" id="turnaround" aria-label="Floating label select example" required>
+                        <option value="" disabled selected>- Select -&nbsp;</option>
+                        <option value="Today">Today</option>
+                        <option value="Next few days">In the next couple of days</option>
+                        <option value="Within week">Within the week</option>
+                        <option value="Not urgent">Not urgent</option>
+                        <option value="Other">Other - please provide details below</option>
+                    </select>
+                    <label for="turnaround">When is the work required?</label>
+                    <div data-lastpass-icon-root="" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;">
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="How can we help?" name="enquiry" id="enquiry" style="height: 140px" maxlength="1000" required></textarea>
+                    <label for="floatingTextarea2">How can we help?</label>
+                    <div data-lastpass-icon-root="" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;">
+                    </div>
+                </div>
+                <button class="w-100 btn btn-lg btn-secondary custom-btn" type="submit">Submit</button>
+                <strong>
+                    <p class="response text-body-primary" id="secondary"></p>
+                </strong>
+                <hr class="my-4">
+                <small class="text-body-secondary">We'll aim to get back to you on the same day, but may take 1-2 business days.</small>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!--Before & After Carousel -->
+<!-- Adapted from: https://getbootstrap.com/docs/5.3/components/carousel/, used as a base for carousel with changes made to adapt better to light or dark more as well as sizing and responsive behaviour-->
+    <div id="myCarousel" class="carousel slide mb-4 w-100" data-bs-ride="carousel">
+        <div class="carousel-indicators" id="carousel-control">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Slide 1" id="carousel-control" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" id="carousel-control" class=""></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" id="carousel-control" class=""></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4" id="carousel-control" class=""></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/static/PF1.jpeg" class="d-block w-100" alt="Before photo; weeding hedging and pruning">
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h2>Before</h2>
+                        <p>Weeding, hedging and pruning</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/static/PF2.jpeg" class="d-block w-100" alt="After photo; weeding hedging and pruning">
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h2>After</h2>
+                        <p>Weeding, hedging and pruning</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/static/PH1.jpeg" class="d-block w-100" alt="Before photo; Pruning, edging and weeding">
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h2>Before</h2>
+                        <p>Pruning, edging and weeding</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/static/PH2.jpeg" class="d-block w-100" alt="After photo; Pruning, edging and weeding">
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h2>After</h2>
+                        <p>Pruning, edging and weeding</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" id="carousel-control" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" id="carousel-control" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+<!-- Google Reviews -->
+<!-- Adapted from: https://getbootstrap.com/docs/5.3/components/card/, used for Grid cards which were then adapted to show as static Google reviews or client testimonials -->
+<!-- Adapted from: https://icons.getbootstrap.com/sprite/?q=social, used for various icons including starts and social media icons -->
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        <div class="col">
+            <div class="card h-100">
+                <div class="row mt-2">
+                    <div class="col-sm text-start ms-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                    </div>
+
+                    <div class="col-sm text-end pe-3"><a class="text-body-secondary" href="https://google.com.au" target="_blank"><img src="/static/google_g_icon.png" width="38" height="38"></a></div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">K. Breen</h5>
+                    <p class="card-text"><em>"Duck and his team at Duck's Lawn Care did a wonderful job with minimum fuss. They took care of the lawn, removed weed and tidied our "slightly" overgrown garden. The gents were very professional and friendly and more importantly, left without making a mess. Will use their services again."</em></p>
+                </div>
+                <div class="card-footer text-end">
+                    <small class="text-body-secondary">21 August 2024</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="row mt-2">
+                    <div class="col-sm text-start ms-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                    </div>
+
+                    <div class="col-sm text-end pe-3"><a class="text-body-secondary" href="https://google.com.au" target="_blank"><img src="/static/google_g_icon.png" width="38" height="38"></a></div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">B. Moore</h5>
+                    <p class="card-text"><em>"The team at Duck's Lawn Care did a great job and were very easy to deal with. Very happy with their work and would highly recommend them."</em></p>
+                </div>
+                <div class="card-footer text-end">
+                    <small class="text-body-secondary">4 March 2024</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="row mt-2">
+                    <div class="col-sm text-start ms-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="review-star" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                    </div>
+
+                    <div class="col-sm text-end pe-3"><a class="text-body-secondary" href="https://google.com.au" target="_blank"><img src="/static/google_g_icon.png" width="38" height="38"></a></div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">S. Kim</h5>
+                    <p class="card-text"><em>"I used Duck's for a recent end of lease garden clean and tidy at the last minute, as another service cancelled. Duck was really helpful in fitting us in at such short notice and did such a great job at the property. Brilliant service, friendly, professional and very efficient."</em></p>
+                </div>
+                <div class="card-footer text-end">
+                    <small class="text-body-secondary">29 December 2023</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

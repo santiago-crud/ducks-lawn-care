@@ -1,0 +1,184 @@
+1 Web Page
+1.1 Make the template that all the pages will use using the same framework from Finance - DONE
+1.2 Plan the design of the web page, what is going to go where - DONE
+1.3 Make the home page - DONE
+1.4 Make the services page - DONE
+1.4 Make the about us page - DONE
+1.5 Make the contact us page - DONE
+1.6 Make the staff login page - DONE
+1.7 Make the staff homepage - DONE
+1.8 Style the webpage using bootstrap - DONE
+1.8 Add the logo to the Nav Bar - DONE
+1.9 Add the client side validations for the form - DONE
+1.10 Add the 'thank you' response for the form - difficult to do this, because it messes with the client side validations try flashing a message to the user once the server side validation is complete. - DONE
+1.11 Add the server side validations for the form - DONE (maybe needs improvement)
+
+2 Database
+2.1 Plan the DB, and what it needs to contain (use the contact us page, and Finance as a reference point) - DONE
+2.2 You will need a table for the log in credentials of staff - DONE
+2.3 Make the DB - DONE
+2.4 Make a back end script to create a new user - DONE
+
+3 Python code
+3.1 Write the code to connect the contact us page to the DB (Finance can help here) - DONE
+3.2 Ensure the DB is populating as expected - DONE
+
+4 Email
+4.1 Figure out how the DB is used to send a triggered email (triggered by new enquiry) - DONE
+4.2 Figure out how the DB is used to send a scheduled email (scheduled at end of each day) - DONE
+4.3 Implement and test this with the code - DONE
+
+5 Staff log in
+5.1 Set up a log in for the user - DONE
+5.2 Allow the user to update their password - DONE
+5.3 Enable funcitonality for the user to mark an enquiry as complete, delete the enquiry, and add an internal note. - DONE
+
+- Finish the staff page - DONE
+- Make the content change to the 'services' page - DONE
+- funtionality to mark enquiry as 'Contacted' - DONE
+- functionality to add 'note' to enquiry - DONE
+- feature that shows how old an enquiry is (only shows when Not Contacted) - DONE
+- fix the postcode problem - DECIDED NOT TO DO THIS
+- add all of the 'alts' and check each link on each page. - DONE
+- make list of things that need to be cited - DONE
+- double check requirements for submission - DONE
+- cite each of these items - DONE
+- write up the readme.txt - DONE
+- write up the readme.md - Double check this one
+- duplicate the project in it's final state for it to go-live - DONE
+- do the rebdrand for the submission - DONE
+- write up script for the recording
+- do the recording
+- make the submission
+
+
+## Citations
+1. Stefan Haack, "bootstrap-auto-dark-mode," https://github.com/shaack/bootstrap-auto-dark-mode
+2. CS50 AI, "Provided guidance on implementing dynamic pagination with pages ranging from 1 to n," interaction on 31-08-2024.
+3. CS50 AI, "Provided guidance on implementing dynamic buttons that display certain text and color based on 'Status' value," interaction on 09-09-2024.
+4. CS50 AI, "Provided guidance on dynamically displaying age on an enquiry if status is not equal to 'Contacted'," interaction on 10-09-2024.
+5. CS50 AI, "Provided guidance on implementing an editable note section for each enquiry," interaction on 10-09-2024.
+6. ChatGPT, "Provided guidance on JavaScript for 'Status' button functionality," interaction on 09-09-2024.
+7. ChatGPT, "Provided guidance on JavaScript for 'Notes' functionality," interaction on 10-09-2024.
+8. CS50 AI, "Provided guidance on possible ways to set up pagination variables back to the rendered '/staff' webpage," interaction on 31-08-2024.
+9. CS50 AI, "Provided guidance on how to perform the calculation for age on an enquiry," interaction on 10-09-2024.
+
+## Credits
+For acknowledging contributions and tools:
+- **Flask**: Used for the web framework.
+- **Flask-Mail**: Used for sending emails to the business owner/manager.
+- **Flask-Session**: Used for session management.
+- **Werkzeug Security**: Used for password hashing and checking.
+- **CS50 Library**: Used for SQL integration.
+- **APScheduler**: Used for scheduling background tasks and scheduled emails.
+- **datetime**: Used for date and time functions.
+- **functools**: Used for utility functions like wraps.
+- **Bootstrap**: Used for styling and front-end features such as button styling, cards, contact forms, font styles, general website layout, image carousels, mobile optimization, modals, modules, navigation bars, page spacing, social media buttons, and tables.
+
+## Acknowledgements
+For expressing gratitude for support and guidance:
+Week 9 Flask: Finace Problem Set to help with the set up of the site, user creation and password changes.
+
+
+
+Scribs:
+
+# YOUR PROJECT TITLE
+#### Video Demo:  <URL HERE>
+#### Description:
+TODO
+
+
+CS50 Final Project
+- Contact us form for a small business including webpage and linking the database to spreadsheet
+
+
+Webpage for a small business including a contact us form that sends to a database, and triggers an email to the Business Owner (BO).
+
+What is it?
+A webpage for a small business (property maintenance) that provides information on its services and includes a contact us form for customer enquiries.
+
+What does it do? What features will it have?
+The webpage allows existing and new customers to see what services a small business provides and if customers would like to submit an enquiry regarding work, they can do so with the built-in ‘contact us’ form.
+
+Webpage
+The webpage will include information around the services provided and the area in which the business operates.
+
+Contact us form
+The contact us form, will capture information about the customer, Full Name, Contact Number, Email Address, Enquiry Type (relating to nature of work), and Description (details on the the work being done).
+
+Triggered and Scheduled emails/notifications
+Once completed the form which ideally will trigger an email to the Business Owner (BO). This email should include the enquiry from the customer. There should also be a email at the end of each day summarising how many enquiries have been received.
+
+Database and end-user usability
+The form should also populate a new row on an SQL database, which the BO can access via a spreadsheet software like Google Sheets. Could also have them log in and make the changes there.
+
+How does it do it?
+TBC - see below
+
+What do you need to build to complete it?
+> Webpage (Flask, HTML and CSS)
+> Python code for the different routes
+> SQL DB and various queries
+> Emails to the Business Owner
+> Staff log in to see the enquiries and mark then as complete
+
+Santi
+From an IT Infrastructure perspective, can you list what the bare minimum is to get my project live and available to the public?
+
+Duck
+To get your project live and available to the public, the bare minimum IT infrastructure includes:
+1. Domain Name: Purchase a domain name (e.g., from Namecheap or Google Domains).
+2. Hosting Service: Use a hosting service (e.g., Heroku, Vercel, or Netlify) to deploy your application.
+3. SSL Certificate: Ensure your site is secure with an SSL certificate (often provided for free by hosting services).
+4. Version Control: Use GitHub or another version control system to manage your code.
+This setup will allow you to host your project live with minimal cost and effort.
+
+Citing Code
+￼
+
+Purchase an SSL certificate
+Read up or learn about how to use GitHub for version control
+Investigate whether I need to set up a testing environment before I push any changes live
+
+
+I need to set up a development environment. (Use the CS50 one for the project, set up your own one later)
+I need to set up a flow to push things live in UAT (User the CS50 server for the project)
+I need to set up a flow to push things live in prod (Do this once it looks good in UAT)
+I need to set up the GitHub repository for the project (do this a bit later on this week)
+
+
+- to do list (milestones then small bites)
+- overview of the project (eg. overview, tech stack)
+- creative designs for the project
+
+
+References:
+[1] Stefan Haack, “bootstrap-auto-dark-mode’, https://github.com/shaack/bootstrap-auto-dark-mode, Accessed on 21/08/2024
+
+
+
+
+# Project Title
+
+## Description
+A brief description of what your project does.
+
+## Features
+- Feature 1
+- Feature 2
+
+## Installation
+1. Install prerequisite software.
+2. Clone the repository.
+3. Run the setup script.
+
+## Usage
+Explain how to use your project.
+
+## Credits
+- Resource 1
+- Resource 2
+
+## License
+This project is licensed under the MIT License.

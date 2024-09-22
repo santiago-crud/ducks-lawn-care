@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Change Password
+{% endblock %}
+
+{% block main %}
+<!-- Adapted from: https://cs50.harvard.edu/x/2024/weeks/9/, used for allowing a user to change their password -->
+    <div class="container-fluid pt-3">
+        <form action="/change" method="post">
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" name="current password" placeholder="Current Password" type="password">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" name="new password" placeholder="New Password" type="password">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Confirm Password" type="password">
+            </div>
+            <button class="btn btn-secondary custom-btn" type="submit">Change Password</button>
+        </form>
+    </div>
+
+
+{% endblock %}

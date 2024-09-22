@@ -1,0 +1,127 @@
+[data-bs-theme=dark] .logo:hover {
+    content: url("/static/ducks_dark_15.png");
+}
+
+.logo:hover {
+    content: url("/static/ducks_light_15.png");
+}
+
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+    color: #8cc63e;
+}
+
+/* Colors for brand */
+nav .nav-link
+{
+    font-size: large
+}
+
+#primary {
+    color: #8cc63e;
+}
+
+#vid-hero {
+    border: none;
+}
+
+.card-vid-hero {
+    --bs-card-border-width: 0;
+    border: none;
+}
+
+.text-bg-dark-vid {
+    color: #fff !important;
+    background-color: transparent !important;
+}
+
+.carousel-caption {
+    color: #fff !important;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: #fff !important;
+  }
+
+#carousel-control {
+    filter: invert(0) grayscale(0);
+    color: #fff !important;
+}
+
+strong {
+    color: #8cc63e;
+}
+
+#secondary {
+    color: #f89e0f;
+}
+
+#review-star {
+    fill: #f89e0f;
+}
+
+.custom-btn {
+    background-color: #8cc63e;
+    color: 	#323232;
+    --bs-green: #8cc63e;
+    --bs-success: #8cc63e;
+    --bs-form-valid-color: #8cc63e;
+    --bs-form-valid-border-color: #8cc63e;
+    --bs-btn-border-color: #8cc63e;
+    --bs-btn-hover-color: #212529;
+    --bs-btn-hover-bg: #73AD25;
+    --bs-btn-hover-border-color: #73AD25;
+}
+
+.accordion {
+    --bs-accordion-active-color: #f89e0f; /* controls colour of accordion heading text when active */
+    --bs-accordion-btn-color: #f89e0f; /* controls colour of accordion heading text when inactive */
+    --bs-accordion-active-bg: ; /* controls colour of active accordion box */
+    --bs-accordion-color: ; /* controls colour of text within accordion */
+    --bs-accordion-bg: ;  /* controls colour of entire accordion background including extended part */
+    --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23dee2e6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(248, 158, 15, 0.25);
+
+
+}
+
+[data-bs-theme=dark] .accordion-button::after {
+    --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23dee2e6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23dee2e6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.page-link {
+    --bs-pagination-color: #f89e0f;
+}
+
+.active>.page-link, .page-link.active {
+
+    --bs-pagination-active-color: white;
+    --bs-pagination-active-bg: #f89e0f;
+    --bs-pagination-active-border-color: #f89e0f;
+}
+
+[data-bs-theme=dark] .pagination {
+    --bs-pagination-hover-color: white;
+    --bs-pagination-focus-color: white;
+    --bs-pagination-hover-bg: ;
+    --bs-pagination-hover-border-color: white;
+    --bs-pagination-active-bg: ;
+    --bs-pagination-active-border-color: ;
+    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}
+
+[data-bs-theme=light] .pagination {
+    --bs-pagination-hover-color: #323232;
+    --bs-pagination-focus-color: #323232;
+}
+
+
+/* Black arrow data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e */
+/* Grey arrow data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23dee2e6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e */
+/* --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23dee2e6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); */
+
+
+/* border: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color); */

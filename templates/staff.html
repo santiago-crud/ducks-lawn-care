@@ -1,0 +1,243 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Staff
+{% endblock %}
+
+{% block main %}
+<!-- Adapted from: https://getbootstrap.com/docs/5.3/components/pagination/, used or assist in ordering of enquiries -->
+<!-- Page indicator and order info -->
+    <div class="container-fluid my-2" style="border:0px;border-style:solid;white:">
+        <div class="row">
+            <div class="col col-lg-5 text-start" style="border:0px;border-style:solid;white:">
+                <small>Enquiries ranked by Newest - Oldest</small>
+            </div>
+            <div class="col-lg-2" style="border:0px;border-style:solid;white:"></div>
+            <div class="col col-lg-5 text-end" style="border:0px;border-style:solid;white:">
+                <small>Showing {{ start }}-{{ end }} of {{ total_rows }} enquiries</small>
+            </div>
+        </div>
+    </div>
+<!-- END Page indicator and order info -->
+
+<!-- Pagination Nav Start -->
+    <div class="container-fluid">
+        <nav aria-label="Page navigation enquiries">
+            <ul class="pagination justify-content-center" id="primary">
+                <!-- Consulted CS50 AI for guidance on implementing dynamic pagination with pages ranging from 1 to n -->
+                {% if page > 1 %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('staff', page=page-1) }}" aria-label="Previous">
+                            <span aria-hidden="true">Prev</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% for n in range(1, total_pages + 1) %}
+                    <li class="page-item {% if n == page %}active{% endif %}">
+                        <a class="page-link" href="{{ url_for('staff', page=n) }}">{{ n }}</a>
+                    </li>
+                {% endfor %}
+                {% if page < total_pages %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('staff', page=page+1) }}" aria-label="Next">
+                            <span aria-hidden="true">Next</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+<!-- Pagination Nav End -->
+<!-- Adapted from: https://getbootstrap.com/docs/5.3/content/tables/, used to provide a styled table for the user to see enquiries -->
+<!-- Enquiries Table Start -->
+    <div class="table-responsive mx-5">
+        <table class="table-sm table table-striped table-hover mx-auto">
+            <thead class="table-secondary">
+                <tr class="table-secondary">
+                    <th class="table-secondary">Status</th>
+                    <th class="table-secondary">Date</th>
+                    <th class="table-secondary">Urgency</th>
+                    <th class="table-secondary text-start">Enquiry</th>
+                    <th class="table-secondary">Notes</th>
+                    <th class="table-secondary">Postcode</th>
+                    <th class="table-secondary">Name</th>
+                    <th class="table-secondary">Phone</th>
+                    <th class="table-secondary">Email</th>
+                </tr>
+            </thead>
+            <!-- Consulted CS50 AI for guidance on implementing dynamic buttons that display certain text an colour based on 'Status' value -->
+            {% for n in enquiries %}
+                <tr class="table-secondary" id="row-{{ n.id }}">
+                    <td class="table-secondary">
+                        {% if n.status == 'Contacted' %}
+                            <button class="btn btn-success" onclick="updateStatus({{ n.id }}, '{{ n.status }}')">Contacted</button>
+                        {% else %}
+                            <button class="btn btn-secondary" onclick="updateStatus({{ n.id }}, '{{ n.status }}')">Not Contacted</button>
+                        {% endif %}
+                    </td>
+                    <td class="table-secondary" id="date-cell-{{ n.id }}">
+                        {{ n.date }}
+                        <!-- Consulted CS50 AI for guidance on implementing dynamically displaying age on an enquiry if status is not equal to 'Contacted' -->
+                        {% if n.status != 'Contacted' %}
+                            <small><span id="age-{{ n.id }}"><br />({{ n.age }} ago)</span></small>
+                        {% endif %}
+                    </td>
+                    <td class="table-secondary">{{ n.urgency }}</td>
+                    <td class="table-secondary text-start">{{ n.message }}</td>
+                    <td class="table-secondary">
+                <!-- Consulted CS50 AI for guidance on implementing an editable note section for each enquiry -->
+                        <textarea id="note-input-{{ n.id }}" rows="4" placeholder="">{{ n.notes }}</textarea>
+                        <button class="btn btn-secondary" onclick="saveNote({{ n.id }})">Save</button>
+                    </td>
+                    <td class="table-secondary">{{ n.postcode }}</td>
+                    <td class="table-secondary">{{ n.name }}</td>
+                    <td class="table-secondary">{{ n.phone }}</td>
+                    <td class="table-secondary">{{ n.email }}</td>
+
+                </tr>
+            {% endfor %}
+        </table>
+    <!-- Enquiries Table End -->
+
+    <!-- Adapted from: https://getbootstrap.com/docs/5.3/components/pagination/, used or assist in ordering of enquiries -->
+    <!-- Pagination Nav Start -->
+        <div class="container-fluid">
+            <nav aria-label="Page navigation enquiries">
+                <ul class="pagination justify-content-center" id="primary">
+                    <!-- Consulted CS50 AI for guidance on implementing dynamic pagination with pages ranging from 1 to n -->
+                    {% if page > 1 %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ url_for('staff', page=page-1) }}" aria-label="Previous">
+                                <span aria-hidden="true">Prev</span>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% for n in range(1, total_pages + 1) %}
+                        <li class="page-item {% if n == page %}active{% endif %}">
+                            <a class="page-link" href="{{ url_for('staff', page=n) }}">{{ n }}</a>
+                        </li>
+                    {% endfor %}
+
+                    {% if page < total_pages %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ url_for('staff', page=page+1) }}" aria-label="Next">
+                                <span aria-hidden="true">Next</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+<!-- Pagination Nav End -->
+
+<!-- Page indicator and order info -->
+    <div class="container-fluid my-2" style="border:0px;border-style:solid;white:">
+        <div class="row">
+            <div class="col col-lg-5 text-start" style="border:0px;border-style:solid;white:">
+                &nbsp;
+            </div>
+            <div class="col-lg-2" style="border:0px;border-style:solid;white:"></div>
+            <div class="col col-lg-5 text-end" style="border:0px;border-style:solid;white:">
+                <small>Showing {{ start }}-{{ end }} of {{ total_rows }} enquiries</small>
+            </div>
+        </div>
+    </div>
+<!-- END Page indicator and order info -->
+
+    <!-- JavaScript for the Status button functionality -->
+    <!-- Consulted ChatGPT for guidance on JavaScript for 'Status' button functionality -->
+    <script>
+        function updateStatus(row_id, currentStatus) {
+            const newStatus = (currentStatus === 'Contacted') ? 'Not Contacted' : 'Contacted';
+            console.log(`Updating row ${row_id} to ${newStatus}`);
+            // Send AJAX request to server with row_id
+            fetch("/update_status", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    row_id: row_id,
+                    new_status: newStatus
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Change the button text on the front end
+                        const button = document.querySelector(`#row-${row_id} button`);
+                        button.innerText = (newStatus === 'Contacted') ? 'Contacted' : 'Not Contacted';
+                        // Change button color on the fornt end
+                        button.classList.toggle('btn-success', newStatus === 'Contacted');
+                        button.classList.toggle('btn-secondary', newStatus === 'Not Contacted');
+                        button.setAttribute('onclick', `updateStatus(${row_id}, '${newStatus}')`)
+                        // Toggle the age display depending on newStatus
+                        const ageElement = document.querySelector(`#age-${row_id}`);
+                        if (newStatus === 'Contacted') {
+                            // If Contacted hide age of enquiry
+                            if (ageElement) {
+                                ageElement.style.display = 'none';
+                            }
+                        } else {
+                        // Otherwise show age of enquiry
+                            if (ageElement) {
+                                ageElement.style.display = 'inline';
+                            }
+                        }
+                    } else {
+                        alert('Failed to updated status.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error: ', error);
+                    alert('An error occured while updating the status.');
+                });
+        }
+    </script>
+
+    <!-- JavaScript for the Notes functionality -->
+    <!-- Consulted ChatGPT for guidance on JavaScript for 'Notes' functionality -->
+    <script>
+        function saveNote(row_id) {
+            // Retrieve the note value from the input field
+            const noteInput = document.querySelector(`#note-input-${row_id}`);
+            const updatedNote = noteInput.value;
+            // Retrieve the button element
+            const saveButton = document.querySelector(`#note-input-${row_id} + button`);
+            // Send AJAX request to the server to save the note
+            fetch("/update_note", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    row_id: row_id,
+                    note: updatedNote
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Change button text to "Saved" once note submitted
+                        const originalText = saveButton.innerText;
+                        saveButton.innerText = "Saved";
+                        saveButton.disabled = true;
+                        // Reset the button text after 1 second
+                        setTimeout(() => {
+                            saveButton.innerText = originalText;
+                            saveButton.disabled = false;
+                        }, 1000);
+                    } else {
+                        alert('Failed to update the note. Check internet connection.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error: ', error);
+                    alert('An error occurred while updating the note. Check internet connection.');
+                });
+        }
+    </script>
+
+{% endblock %}
